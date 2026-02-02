@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Rupasmita & Kishor - Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;600;700&family=Cinzel:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --champagne: #F7E7CE;
+  --rose-gold: #B76E79;
+  --deep-rose: #8B4049;
+  --ivory: #FFFEF7;
+  --cream: #FFF9F0;
+  --charcoal: #2C2C2C;
+  --gold-accent: #D4A574;
+}
+
+body {
+  font-family: 'Lora', serif;
+  background: var(--ivory);
+  color: var(--charcoal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+.card-container {
+  max-width: 450px;
+  margin: 0 auto;
+  background: var(--ivory);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Elegant border frame */
+.card-container::before {
+  content: '';
+  position: absolute;
+  inset: 15px;
+  border: 1px solid var(--gold-accent);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.4;
+}
+
+/* Hero Section with Photo */
+.hero {
+  position: relative;
+  min-height: auto;
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 80px 30px 20px 30px;
+  overflow: hidden;
+  aspect-ratio: 676 / 1200;
+}
+
+.hero::before {
+  display: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.invitation-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--deep-rose);
+  margin-bottom: 25px;
+  font-weight: 500;
+  text-shadow: 
+    0 2px 4px rgba(255, 255, 255, 0.9),
+    0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.couple-names {
+  font-family: 'Cormorant', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--rose-gold);
+  line-height: 1.2;
+  margin: 0 0 35px 0;
+  letter-spacing: 2px;
+  text-shadow: 
+    0 2px 8px rgba(255, 255, 255, 0.95),
+    0 0 30px rgba(255, 255, 255, 0.8),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ampersand {
+  font-style: italic;
+  font-weight: 400;
+  display: block;
+  margin: 5px 0;
+  font-size: 2.5rem;
+  color: var(--deep-rose);
+  text-shadow: 
+    0 2px 8px rgba(255, 255, 255, 0.95),
+    0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+/* Invitation message - OUTSIDE photo */
+.invitation-message {
+  background: var(--cream);
+  padding: 40px 35px;
+  text-align: center;
+}
+
+.invitation-text {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--charcoal);
+  max-width: 380px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+/* Content Section */
+.content-section {
+  padding: 50px 35px;
+  background: var(--cream);
+}
+
+.section-divider {
+  width: 80px;
+  height: 1px;
+  background: var(--gold-accent);
+  margin: 40px auto;
+  position: relative;
+}
+
+.section-divider::before {
+  content: '❖';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--cream);
+  padding: 0 15px;
+  color: var(--gold-accent);
+  font-size: 0.8rem;
+}
+
+/* Heart Scratch Section */
+.heart-section {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.scratch-instruction {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--deep-rose);
+  margin-bottom: 20px;
+  transition: all 0.5s ease;
+}
+
+.scratch-instruction.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.heart-canvas-wrapper {
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
+  position: relative;
+  filter: drop-shadow(0 10px 30px rgba(183, 110, 121, 0.3));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wedding-date {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Cinzel', serif;
+  color: var(--charcoal);
+}
+
+.wedding-date .day {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.wedding-date .month-year {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+#heartCanvas {
+  cursor: pointer;
+  touch-action: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Message Section */
+.message {
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--charcoal);
+  margin: 40px 0;
+  font-style: italic;
+}
+
+/* Events */
+.events-section {
+  margin: 40px 0;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--deep-rose);
+  margin-bottom: 30px;
+}
+
+.event-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+}
+
+.event-item:last-child {
+  border-bottom: none;
+}
+
+.event-name {
+  font-family: 'Cormorant', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--rose-gold);
+}
+
+.event-date {
+  font-size: 0.95rem;
+  color: var(--charcoal);
+}
+
+/* Countdown */
+.countdown-section {
+  margin: 50px 0;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.countdown-item {
+  text-align: center;
+  padding: 20px 10px;
+  background: var(--ivory);
+  border: 1px solid rgba(212, 165, 116, 0.3);
+  transition: all 0.3s ease;
+}
+
+.countdown-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(183, 110, 121, 0.2);
+}
+
+.countdown-number {
+  font-family: 'Cormorant', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--rose-gold);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.countdown-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  opacity: 0.7;
+}
+
+/* Venue */
+.venue-section {
+  margin: 40px 0;
+}
+
+.venue-address {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+  margin: 20px 0;
+}
+
+.venue-name {
+  font-family: 'Cormorant', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--rose-gold);
+}
+
+.map-container {
+  margin-top: 25px;
+  border: 1px solid rgba(212, 165, 116, 0.3);
+  overflow: hidden;
+  height: 250px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(0.3) contrast(1.1);
+}
+
+/* Footer */
+.footer-section {
+  padding: 45px 35px;
+  background: var(--champagne);
+  text-align: center;
+}
+
+.closing-message {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+
+.couple-signature {
+  font-family: 'Cormorant', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--rose-gold);
+  margin: 15px 0 30px;
+}
+
+.rsvp-button {
+  display: inline-block;
+  padding: 16px 45px;
+  background: var(--rose-gold);
+  color: white;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(183, 110, 121, 0.3);
+}
+
+.rsvp-button:hover {
+  background: var(--deep-rose);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(183, 110, 121, 0.4);
+}
+
+/* Decorative Elements */
+.floating-petals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(ellipse at 30% 30%, #ffb6c1, #ffc0d0 40%, rgba(255, 182, 193, 0.4));
+  border-radius: 50% 0 50% 0;
+  animation: fall linear infinite;
+  transform-origin: center;
+  box-shadow: 0 2px 5px rgba(183, 110, 121, 0.3);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Particles for scratch effect */
+#particleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .card-container {
+    margin: 0;
+    box-shadow: none;
+  }
+  
+  .couple-names {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+  }
+  
+  .hero {
+    padding: 70px 20px 15px 20px;
+    aspect-ratio: 676 / 1200;
+    background-size: contain;
+  }
+  
+  .content-section, .invitation-message {
+    padding: 40px 25px;
+  }
+  
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .heart-canvas-wrapper {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .wedding-date .day {
+    font-size: 2rem;
+  }
+  
+  .card-container::before {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Floating petals decoration -->
+<div class="floating-petals" id="petalsContainer"></div>
+
+<!-- Particle canvas for scratch effect -->
+<canvas id="particleCanvas"></canvas>
+
+<div class="card-container">
+  <!-- Hero Section with Photo -->
+  <section class="hero" style="background-image: url('hero.jpg');">
+    <div class="hero-content">
+      <div class="invitation-label">You're Invited to Celebrate<br>the wedding of</div>
+      <h1 class="couple-names">
+        Rupasmita
+        <span class="ampersand">&</span>
+        Kishor
+      </h1>
+    </div>
+  </section>
+
+  <!-- Invitation Message (Outside Photo) -->
+  <section class="invitation-message">
+    <p class="invitation-text">
+      With immense joy, we request your gracious presence as we unite in marriage and begin our forever
+    </p>
+  </section>
+
+  <!-- Main Content -->
+  <section class="content-section">
+    
+    <!-- Heart Scratch -->
+    <div class="heart-section">
+      <div class="scratch-instruction" id="scratchHint">Scratch the heart to reveal the date</div>
+      <div class="heart-canvas-wrapper">
+        <div class="wedding-date">
+          <span class="day">21<sup style="font-size: 0.4em; vertical-align: super; margin-left: 1px;">st</sup></span>
+          <span class="month-year">April 2026</span>
+        </div>
+        <canvas id="heartCanvas" width="280" height="280"></canvas>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Message -->
+    <div class="message">
+      Surrounded by love, laughter, and blessings, we invite you to witness the beginning of our beautiful journey together
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Events -->
+    <div class="events-section">
+      <h2 class="section-title">Celebration Event</h2>
+      <div class="event-item">
+        <span class="event-name">Wedding Ceremony</span>
+        <span class="event-date">21st April 2026</span>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Countdown -->
+    <div class="countdown-section">
+      <h2 class="section-title">Counting Down</h2>
+      <div class="countdown-grid">
+        <div class="countdown-item">
+          <span class="countdown-number" id="days">0</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="hours">0</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="minutes">0</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="seconds">0</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Venue -->
+    <div class="venue-section">
+      <h2 class="section-title">Venue</h2>
+      <div class="venue-address">
+        <div class="venue-name">Home, Pathsala</div>
+        <div>Bajali, Assam</div>
+      </div>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1137.9570713316564!2d91.17992735668274!3d26.50542136842356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDMwJzE5LjMiTiA5McKwMTAnNTAuNSJF!5e1!3m2!1sen!2sin!4v1770004991248!5m2!1sen!2sin" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <section class="footer-section">
+    <div class="closing-message">With Love & Blessings</div>
+    <div class="couple-signature">Dr. Rupasmita (Rimpi)</div>
+    <a href="tel:+918638322029" class="rsvp-button">RSVP: +91 8638322029</a>
+  </section>
+</div>
+
+<script>
+// Floating petals - more beautiful
+const petalsContainer = document.getElementById('petalsContainer');
+for (let i = 0; i < 20; i++) {
+  const petal = document.createElement('div');
+  petal.className = 'petal';
+  petal.style.left = Math.random() * 100 + '%';
+  petal.style.animationDuration = (12 + Math.random() * 10) + 's';
+  petal.style.animationDelay = Math.random() * 5 + 's';
+  petal.style.opacity = 0.6 + Math.random() * 0.4;
+  petalsContainer.appendChild(petal);
+}
+
+// Heart scratch canvas
+const canvas = document.getElementById('heartCanvas');
+const ctx = canvas.getContext('2d');
+
+// Draw heart with gradient
+const gradient = ctx.createLinearGradient(0, 0, 280, 280);
+gradient.addColorStop(0, '#B76E79');
+gradient.addColorStop(0.5, '#D4A574');
+gradient.addColorStop(1, '#B76E79');
+
+ctx.fillStyle = gradient;
+ctx.beginPath();
+ctx.moveTo(140, 250);
+ctx.bezierCurveTo(280, 140, 210, 50, 140, 100);
+ctx.bezierCurveTo(70, 50, 0, 140, 140, 250);
+ctx.closePath();
+ctx.fill();
+
+// Add subtle shadow
+ctx.shadowBlur = 15;
+ctx.shadowColor = 'rgba(183, 110, 121, 0.3)';
+ctx.fill();
+
+// Scratch functionality
+ctx.globalCompositeOperation = 'destination-out';
+let isDrawing = false;
+let scratchedPercent = 0;
+
+const scratchHint = document.getElementById('scratchHint');
+
+function checkScratchProgress() {
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const pixels = imageData.data;
+  let transparent = 0;
+  
+  for (let i = 3; i < pixels.length; i += 4) {
+    if (pixels[i] < 128) transparent++;
+  }
+  
+  scratchedPercent = (transparent / (pixels.length / 4)) * 100;
+  
+  if (scratchedPercent > 25 && scratchHint) {
+    scratchHint.classList.add('hidden');
+  }
+}
+
+function scratch(e) {
+  if (!isDrawing) return;
+  
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  
+  let x, y;
+  
+  if (e.touches && e.touches.length > 0) {
+    x = (e.touches[0].clientX - rect.left) * scaleX;
+    y = (e.touches[0].clientY - rect.top) * scaleY;
+  } else {
+    x = (e.clientX - rect.left) * scaleX;
+    y = (e.clientY - rect.top) * scaleY;
+  }
+  
+  ctx.beginPath();
+  ctx.arc(x, y, 25, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Create particle effect
+  if (e.touches && e.touches.length > 0) {
+    createParticles(e.touches[0].clientX, e.touches[0].clientY);
+  } else {
+    createParticles(e.clientX, e.clientY);
+  }
+}
+
+canvas.addEventListener('mousedown', (e) => {
+  e.preventDefault();
+  isDrawing = true;
+  scratch(e);
+});
+
+canvas.addEventListener('mouseup', () => {
+  isDrawing = false;
+  checkScratchProgress();
+});
+
+canvas.addEventListener('mousemove', scratch);
+
+canvas.addEventListener('mouseleave', () => {
+  isDrawing = false;
+});
+
+canvas.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  isDrawing = true;
+  scratch(e);
+});
+
+canvas.addEventListener('touchend', (e) => {
+  e.preventDefault();
+  isDrawing = false;
+  checkScratchProgress();
+});
+
+canvas.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+  scratch(e);
+});
+
+// Particle system
+const particleCanvas = document.getElementById('particleCanvas');
+const pCtx = particleCanvas.getContext('2d');
+particleCanvas.width = window.innerWidth;
+particleCanvas.height = window.innerHeight;
+
+const particles = [];
+
+class Particle {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.vx = (Math.random() - 0.5) * 3;
+    this.vy = (Math.random() - 0.5) * 3 - 2;
+    this.life = 1;
+    this.size = Math.random() * 3 + 1;
+    this.color = Math.random() > 0.5 ? '#B76E79' : '#D4A574';
+  }
+  
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    this.vy += 0.1;
+    this.life -= 0.02;
+  }
+  
+  draw() {
+    pCtx.save();
+    pCtx.globalAlpha = this.life;
+    pCtx.fillStyle = this.color;
+    pCtx.beginPath();
+    pCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    pCtx.fill();
+    pCtx.restore();
+  }
+}
+
+function createParticles(x, y) {
+  for (let i = 0; i < 5; i++) {
+    particles.push(new Particle(x, y));
+  }
+}
+
+function animateParticles() {
+  pCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+  
+  for (let i = particles.length - 1; i >= 0; i--) {
+    particles[i].update();
+    particles[i].draw();
+    
+    if (particles[i].life <= 0) {
+      particles.splice(i, 1);
+    }
+  }
+  
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+
+window.addEventListener('resize', () => {
+  particleCanvas.width = window.innerWidth;
+  particleCanvas.height = window.innerHeight;
+});
+
+// Countdown timer
+const weddingDate = new Date('2026-04-21T19:00:00+05:30').getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+  
+  if (distance < 0) {
+    document.getElementById('days').textContent = '0';
+    document.getElementById('hours').textContent = '0';
+    document.getElementById('minutes').textContent = '0';
+    document.getElementById('seconds').textContent = '0';
+    return;
+  }
+  
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  document.getElementById('days').textContent = days;
+  document.getElementById('hours').textContent = hours;
+  document.getElementById('minutes').textContent = minutes;
+  document.getElementById('seconds').textContent = seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
